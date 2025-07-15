@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="#0B3D0B" stroke="#317873" stroke-width="4"/>
+  
+  <!-- Pulse wave path -->
+  <path d="M 30 100 L 50 100 L 60 80 L 70 120 L 80 60 L 90 140 L 100 100 L 110 100 L 120 80 L 130 120 L 140 60 L 150 140 L 160 100 L 170 100" 
+        fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Heart symbol integrated with pulse -->
+  <path d="M 100 85 C 95 75, 80 75, 80 90 C 80 105, 100 125, 100 125 C 100 125, 120 105, 120 90 C 120 75, 105 75, 100 85 Z" 
+        fill="#FFFFFF" opacity="0.9"/>
+  
+  <!-- AI circuit nodes -->
+  <circle cx="70" cy="70" r="3" fill="#317873"/>
+  <circle cx="130" cy="70" r="3" fill="#317873"/>
+  <circle cx="70" cy="130" r="3" fill="#317873"/>
+  <circle cx="130" cy="130" r="3" fill="#317873"/>
+  
+  <!-- Connecting lines for AI network -->
+  <line x1="70" y1="70" x2="100" y2="85" stroke="#317873" stroke-width="1.5" opacity="0.6"/>
+  <line x1="130" y1="70" x2="100" y2="85" stroke="#317873" stroke-width="1.5" opacity="0.6"/>
+  <line x1="70" y1="130" x2="100" y2="115" stroke="#317873" stroke-width="1.5" opacity="0.6"/>
+  <line x1="130" y1="130" x2="100" y2="115" stroke="#317873" stroke-width="1.5" opacity="0.6"/>
+  
+  <!-- Pulse animation effect -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#317873" stroke-width="2" opacity="0.3">
+    <animate attributeName="r" values="85;95;85" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.1;0.3" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Text elements -->
+  <text x="100" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#FFFFFF">PulseAI</text>
+  <text x="100" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#C8E6C9">AI-Powered Healthcare</text>
+</svg>

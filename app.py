@@ -13,7 +13,7 @@ from utils.visualizations import create_risk_gauge, create_timeline_chart, creat
 
 # Page configuration
 st.set_page_config(
-    page_title="PulseAI - Cardiovascular Risk Assessment",
+    page_title="PulseAI - Hospital Management System",
     page_icon="💓",
     layout="wide",
     initial_sidebar_state="expanded"

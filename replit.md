@@ -43,6 +43,13 @@ PulseAI (formerly MediCore HMS) is a futuristic, cyberpunk-themed Hospital Manag
 - **2025-07-17**: Created "About Developer" page with animated watermark
 - **2025-07-17**: Cleaned up project structure (removed old app.py, renamed app_enhanced.py to app.py)
 - **2025-07-17**: Fixed settings page TypeError issue
+- **2025-07-17**: Separated medicine management from patient registration
+- **2025-07-17**: Fixed risk distribution chart visualization issue
+- **2025-07-17**: Added comprehensive Replit branding throughout the application
+- **2025-07-17**: Created creative README.md with Replit recognition
+- **2025-07-17**: Enhanced UI with Poppins font family everywhere
+- **2025-07-17**: Improved responsive design for mobile devices
+- **2025-07-17**: Added UIEnhancements component for consistent styling
 
 ## User Preferences
 - Modern, clean design with Poppins font family

@@ -1,5 +1,26 @@
-/* PulseAI Enhanced Styles with Poppins Font */
+/* PulseAI Enhanced Styles with Poppins Font - Built on Replit */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Replit Branding */
+.replit-badge {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: linear-gradient(45deg, #667881, #4a5568);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: 500;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
 
 /* Base Font Styles with Poppins */
 * {
@@ -17,6 +38,58 @@ h1, h2, h3, h4, h5, h6 {
 
 .stSelectbox, .stTextInput, .stNumberInput, .stTextArea, .stButton {
     font-family: 'Poppins', sans-serif !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .stApp {
+        padding: 1rem !important;
+    }
+    
+    .metric-card {
+        padding: 1rem !important;
+        margin: 0.5rem 0 !important;
+    }
+    
+    .stColumns {
+        flex-direction: column !important;
+    }
+    
+    .sidebar .stSelectbox {
+        font-size: 14px !important;
+    }
+}
+
+/* Enhanced Metric Cards */
+.metric-card {
+    background: linear-gradient(135deg, rgba(0,255,136,0.1) 0%, rgba(0,204,255,0.1) 100%);
+    border: 1px solid rgba(0,255,136,0.3);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,255,136,0.1);
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,255,136,0.2);
+    border-color: rgba(0,255,136,0.5);
+}
+
+.metric-card h3 {
+    color: #00ccff;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.metric-card h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 0 10px currentColor;
 }
 
 /* Page transition animations */

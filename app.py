@@ -24,6 +24,8 @@ from components.billing_finance import BillingFinanceManager
 from components.staff_management import StaffManagementSystem
 from components.bed_management import BedManagementSystem
 from components.patient_manager import PatientManager
+from components.medicine_manager import MedicineManager
+from components.ui_enhancements import UIEnhancements
 
 # Import existing utilities
 from utils.risk_calculator import FraminghamRiskCalculator
@@ -67,6 +69,8 @@ if 'bed_manager' not in st.session_state:
     st.session_state.bed_manager = BedManagementSystem()
 if 'patient_manager' not in st.session_state:
     st.session_state.patient_manager = PatientManager()
+if 'medicine_manager' not in st.session_state:
+    st.session_state.medicine_manager = MedicineManager()
 
 # Show preloader on first visit
 if 'app_loaded' not in st.session_state:
@@ -98,9 +102,12 @@ def create_enhanced_header():
     
     with col3:
         st.markdown(f"""
-        <div style="text-align: right; padding: 10px;">
+        <div style="text-align: right; padding: 10px; font-family: 'Poppins', sans-serif;">
             <strong>🏥 Hospital Management System</strong><br>
-            <small>Advanced Healthcare Platform</small>
+            <small>Built on Replit | Advanced Healthcare Platform</small>
+        </div>
+        <div class="replit-badge">
+            🔗 Built on Replit
         </div>
         """, unsafe_allow_html=True)
 
@@ -109,11 +116,11 @@ def create_enhanced_sidebar():
     with st.sidebar:
         # Hospital info section
         st.markdown(f"""
-        <div class="theme-card" style="text-align: center; margin-bottom: 20px;">
+        <div class="theme-card" style="text-align: center; margin-bottom: 20px; font-family: 'Poppins', sans-serif;">
             <h3>🏥 PulseAI HMS</h3>
             <p><strong>Advanced Hospital Management</strong></p>
             <p>Healthcare Analytics Platform</p>
-            <p><small>Version 2.0</small></p>
+            <p><small>Version 2.0 | Built on Replit</small></p>
         </div>
         """, unsafe_allow_html=True)
         
@@ -121,13 +128,13 @@ def create_enhanced_sidebar():
         selected = option_menu(
             menu_title="Navigation",
             options=[
-                "Dashboard", "Patient Management", "Medical Records",
+                "Dashboard", "Patient Management", "Medicine Management", "Medical Records",
                 "Risk Assessment", "Appointments", "Bed Management", 
                 "Staff Management", "Inventory", "Billing & Finance", 
                 "Advanced Analytics", "Reports", "Settings", "About Developer"
             ],
             icons=[
-                "speedometer2", "person-plus-fill", "file-medical", "heart-pulse",
+                "speedometer2", "person-plus-fill", "capsule", "file-medical", "heart-pulse",
                 "calendar", "bed", "people-fill", "box-seam",
                 "currency-dollar", "graph-up-arrow", "file-earmark-pdf", "gear", "info-circle"
             ],
@@ -172,38 +179,34 @@ def show_enhanced_dashboard():
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
-        st.markdown("""
-        <div class="metric-card">
-            <h3>👥 Total Patients</h3>
-            <h2 style="color: #00ff88;">{}</h2>
-        </div>
-        """.format(total_patients), unsafe_allow_html=True)
+        st.markdown(
+            UIEnhancements.create_enhanced_metric_card(
+                "Total Patients", total_patients, "👥", "#00ff88"
+            ), unsafe_allow_html=True
+        )
     
     with col2:
-        st.markdown("""
-        <div class="metric-card">
-            <h3>🚨 High Risk</h3>
-            <h2 style="color: #ff4444;">{}</h2>
-        </div>
-        """.format(high_risk_count), unsafe_allow_html=True)
+        st.markdown(
+            UIEnhancements.create_enhanced_metric_card(
+                "High Risk Patients", high_risk_count, "🚨", "#ff4444"
+            ), unsafe_allow_html=True
+        )
     
     with col3:
         appointments_today = len(st.session_state.scheduler.get_appointments_by_date(str(datetime.now().date())))
-        st.markdown("""
-        <div class="metric-card">
-            <h3>📅 Today's Appointments</h3>
-            <h2 style="color: #00ccff;">{}</h2>
-        </div>
-        """.format(appointments_today), unsafe_allow_html=True)
+        st.markdown(
+            UIEnhancements.create_enhanced_metric_card(
+                "Today's Appointments", appointments_today, "📅", "#00ccff"
+            ), unsafe_allow_html=True
+        )
     
     with col4:
         unread_notifications = st.session_state.notification_manager.get_unread_count()
-        st.markdown("""
-        <div class="metric-card">
-            <h3>🔔 Notifications</h3>
-            <h2 style="color: #ffa500;">{}</h2>
-        </div>
-        """.format(unread_notifications), unsafe_allow_html=True)
+        st.markdown(
+            UIEnhancements.create_enhanced_metric_card(
+                "Notifications", unread_notifications, "🔔", "#ffa500"
+            ), unsafe_allow_html=True
+        )
     
     # Recent activity and charts
     col1, col2 = st.columns(2)
@@ -221,19 +224,49 @@ def show_enhanced_dashboard():
                 else:
                     risk_data['High'] += 1
             
-            fig = px.pie(
-                values=list(risk_data.values()),
-                names=list(risk_data.keys()),
-                color_discrete_map={'Low': '#00ff88', 'Moderate': '#ffa500', 'High': '#ff4444'}
-            )
-            fig.update_layout(
-                plot_bgcolor='rgba(0,0,0,0)',
-                paper_bgcolor='rgba(0,0,0,0)',
-                font=dict(color='white')
-            )
-            st.plotly_chart(fig, use_container_width=True)
+            # Filter out zero values for better visualization
+            filtered_data = {k: v for k, v in risk_data.items() if v > 0}
+            
+            if not filtered_data:
+                st.info("No patient data available for risk analysis")
+            else:
+                fig = px.pie(
+                    values=list(filtered_data.values()),
+                    names=list(filtered_data.keys()),
+                    color_discrete_map={'Low': '#00ff88', 'Moderate': '#ffa500', 'High': '#ff4444'},
+                    title="Patient Risk Distribution"
+                )
+                fig.update_layout(
+                    font=dict(family="Poppins, sans-serif", size=12),
+                    showlegend=True,
+                    plot_bgcolor='rgba(0,0,0,0)',
+                    paper_bgcolor='rgba(0,0,0,0)',
+                    title_font_size=16,
+                    title_font_color='#00ff88',
+                    legend=dict(
+                        orientation="h",
+                        yanchor="bottom",
+                        y=-0.2,
+                        xanchor="center",
+                        x=0.5
+                    )
+                )
+                fig.update_traces(
+                    textposition='inside',
+                    textinfo='percent+label',
+                    hovertemplate='<b>%{label}</b><br>Count: %{value}<br>Percentage: %{percent}<extra></extra>',
+                    marker=dict(line=dict(color='#000000', width=2))
+                )
+                st.plotly_chart(fig, use_container_width=True)
         else:
-            st.info("No patient data available")
+            st.markdown(
+                UIEnhancements.create_info_card(
+                    "No Data Available", 
+                    "Register patients to see risk distribution analytics.", 
+                    "📊", 
+                    "#00ccff"
+                ), unsafe_allow_html=True
+            )
     
     with col2:
         st.markdown("### 🔔 Recent Notifications")
@@ -436,6 +469,8 @@ def main():
         show_enhanced_dashboard()
     elif selected_page == "Patient Management":
         st.session_state.patient_manager.patient_registration_form()
+    elif selected_page == "Medicine Management":
+        st.session_state.medicine_manager.display_medicine_management()
     elif selected_page == "Medical Records":
         st.session_state.medical_records.display_medical_records()
     elif selected_page == "Risk Assessment":

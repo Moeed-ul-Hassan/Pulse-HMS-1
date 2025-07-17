@@ -4,11 +4,11 @@ import plotly.express as px
 from datetime import datetime
 
 class UIEnhancements:
-    """Enhanced UI Components with Poppins Font and Replit Branding"""
+    """Enhanced UI Components with Poppins Font"""
     
     @staticmethod
-    def add_replit_branding():
-        """Replit branding removed per user request"""
+    def add_platform_branding():
+        """Platform branding removed per user request"""
         pass
     
     @staticmethod
@@ -17,7 +17,10 @@ class UIEnhancements:
         subtitle_html = f"<p style='color: #64748b; font-size: 0.8rem; margin: 8px 0 0 0; font-weight: 300;'>{subtitle}</p>" if subtitle else ""
         
         return f"""
-        <div class="metric-card" style="font-family: 'Poppins', sans-serif;">
+        <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(0,255,136,0.2); 
+                    border-radius: 20px; padding: 2rem; margin: 1rem 0; backdrop-filter: blur(20px); 
+                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;
+                    font-family: 'Poppins', sans-serif;">
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
                 <div>
                     <h3 style="color: #94a3b8; margin: 0; font-size: 0.9rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.5px;">{title}</h3>
@@ -25,7 +28,7 @@ class UIEnhancements:
                 </div>
                 <div style="font-size: 1.8rem; opacity: 0.7;">{icon}</div>
             </div>
-            <h2 style="font-size: 2.8rem; font-weight: 300; margin: 0; background: linear-gradient(45deg, #00ff88, #00ccff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">{value}</h2>
+            <h2 style="font-size: 2.8rem; font-weight: 300; margin: 0; color: {color};">{value}</h2>
         </div>
         """
     
@@ -151,7 +154,7 @@ class UIEnhancements:
     
     @staticmethod
     def add_footer():
-        """Add minimalist footer with Replit branding"""
+        """Add minimalist footer"""
         return """
         <div style="margin-top: 4rem; padding: 2rem; text-align: center; 
                     border-top: 1px solid rgba(0,255,136,0.1); font-family: 'Poppins', sans-serif;">

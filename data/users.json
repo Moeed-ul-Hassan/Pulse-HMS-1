@@ -1,0 +1,8 @@
+{
+  "admin": {
+    "password": "$2b$12$.UDWpysHPMwDkZpK9fZYN.ryI7WV315GYE5aGgDN.gnIlKaQuIcbm",
+    "role": "admin",
+    "name": "System Administrator",
+    "email": "admin@pulseai.com"
+  }
+}

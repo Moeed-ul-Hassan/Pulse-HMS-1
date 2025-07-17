@@ -1,58 +1,22 @@
-/* PulseAI Enhanced Styles with Custom Cursor and Animations */
+/* PulseAI Enhanced Styles with Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* Custom Cursor Styles */
-body, html {
-    cursor: none !important;
-}
-
+/* Base Font Styles with Poppins */
 * {
-    cursor: none !important;
+    font-family: 'Poppins', sans-serif !important;
 }
 
-.custom-cursor {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background: linear-gradient(135deg, #0B3D0B 0%, #317873 100%);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transition: all 0.1s ease;
-    transform: translate(-50%, -50%);
+body, html {
+    font-family: 'Poppins', sans-serif !important;
 }
 
-.custom-cursor::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 40px;
-    height: 40px;
-    background: rgba(11, 61, 11, 0.1);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    animation: cursor-pulse 2s infinite;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 600;
 }
 
-@keyframes cursor-pulse {
-    0% { transform: translate(-50%, -50%) scale(0.8); opacity: 1; }
-    100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
-}
-
-/* Cursor hover effects */
-.custom-cursor.hover {
-    transform: translate(-50%, -50%) scale(1.5);
-    background: linear-gradient(135deg, #317873 0%, #0B3D0B 100%);
-}
-
-.custom-cursor.click {
-    transform: translate(-50%, -50%) scale(0.8);
-    background: #FF4444;
-}
-
-/* Interactive elements cursor enhancement */
-button, .stButton, .stSelectbox, .stTextInput, .stNumberInput, .stCheckbox, .stRadio {
-    cursor: pointer !important;
+.stSelectbox, .stTextInput, .stNumberInput, .stTextArea, .stButton {
+    font-family: 'Poppins', sans-serif !important;
 }
 
 /* Page transition animations */

@@ -31,9 +31,11 @@ PulseAI (formerly MediCore HMS) is a futuristic, cyberpunk-themed Hospital Manag
 - **2025-07-17**: Verified all dependencies and project structure
 
 ## User Preferences
-- Cyberpunk/futuristic UI theme with animations
-- Comprehensive patient management features
+- Modern, clean design with Poppins font family
+- No login/logout system required (direct access)
+- Comprehensive hospital management features
 - Real-time monitoring capabilities
+- Professional healthcare-focused UI
 
 ## Deployment Configuration
 - Streamlit server configured for 0.0.0.0:5000

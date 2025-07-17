@@ -57,17 +57,9 @@ def load_css():
         50% { background-size: 110% 110%; }
     }
     
-    /* Force cursor visibility */
+    /* Professional cursor styling */
     * {
-        cursor: none !important;
-    }
-    
-    body * {
-        cursor: none !important;
-    }
-    
-    .stApp * {
-        cursor: none !important;
+        cursor: default !important;
     }
     
     .futuristic-card {

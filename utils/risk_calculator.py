@@ -73,9 +73,47 @@ class FraminghamRiskCalculator:
         probability = 1 - math.exp(-math.exp(risk_score))
         
         # Convert to percentage and ensure reasonable bounds
-        risk_percentage = min(max(probability * 100, 0), 100)
+        return min(max(probability * 100, 0), 100)
+    
+    def categorize_risk(self, risk_score: float) -> str:
+        """Categorize risk based on score"""
+        if risk_score < 10:
+            return "Low"
+        elif risk_score < 20:
+            return "Moderate"
+        else:
+            return "High"
+    
+    def get_recommendations(self, risk_score: float, patient_data: Dict) -> List[str]:
+        """Get clinical recommendations based on risk score"""
+        recommendations = []
         
-        return risk_percentage
+        if risk_score < 10:
+            recommendations.extend([
+                "Continue current lifestyle modifications",
+                "Annual cardiovascular risk reassessment",
+                "Maintain healthy diet and regular exercise",
+                "Monitor blood pressure and cholesterol levels"
+            ])
+        elif risk_score < 20:
+            recommendations.extend([
+                "Consider statin therapy (discuss with physician)",
+                "Blood pressure control if hypertensive",
+                "Smoking cessation if applicable",
+                "Weight management and increased physical activity",
+                "Consider aspirin therapy (physician consultation required)"
+            ])
+        else:
+            recommendations.extend([
+                "HIGH PRIORITY: Immediate physician consultation required",
+                "Strong consideration for statin therapy",
+                "Aggressive blood pressure management",
+                "Comprehensive lifestyle intervention",
+                "Consider cardiology referral",
+                "Frequent monitoring and follow-up required"
+            ])
+        
+        return recommendations
     
     def _apply_additional_risk_factors(self, base_risk: float, patient_data: Dict) -> float:
         """Apply additional risk factor adjustments."""

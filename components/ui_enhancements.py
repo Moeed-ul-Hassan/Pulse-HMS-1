@@ -8,26 +8,24 @@ class UIEnhancements:
     
     @staticmethod
     def add_replit_branding():
-        """Add Replit branding to the application"""
-        st.markdown("""
-        <div class="replit-badge">
-            🔗 Built on Replit
-        </div>
-        """, unsafe_allow_html=True)
+        """Replit branding removed per user request"""
+        pass
     
     @staticmethod
     def create_enhanced_metric_card(title, value, icon, color="#00ff88", subtitle=None):
-        """Create enhanced metric card with animations"""
-        subtitle_html = f"<p style='color: #888; font-size: 0.9rem; margin: 5px 0 0 0;'>{subtitle}</p>" if subtitle else ""
+        """Create futuristic minimalist metric card"""
+        subtitle_html = f"<p style='color: #64748b; font-size: 0.8rem; margin: 8px 0 0 0; font-weight: 300;'>{subtitle}</p>" if subtitle else ""
         
         return f"""
-        <div class="metric-card enhanced-card" style="font-family: 'Poppins', sans-serif;">
-            <div style="display: flex; align-items: center; margin-bottom: 10px;">
-                <span style="font-size: 1.5rem; margin-right: 10px;">{icon}</span>
-                <h3 style="color: #00ccff; margin: 0; font-size: 1.1rem; font-weight: 500;">{title}</h3>
+        <div class="metric-card" style="font-family: 'Poppins', sans-serif;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+                <div>
+                    <h3 style="color: #94a3b8; margin: 0; font-size: 0.9rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.5px;">{title}</h3>
+                    {subtitle_html}
+                </div>
+                <div style="font-size: 1.8rem; opacity: 0.7;">{icon}</div>
             </div>
-            <h2 style="color: {color}; font-size: 2.5rem; font-weight: 700; margin: 0; text-shadow: 0 0 10px {color};">{value}</h2>
-            {subtitle_html}
+            <h2 style="font-size: 2.8rem; font-weight: 300; margin: 0; background: linear-gradient(45deg, #00ff88, #00ccff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">{value}</h2>
         </div>
         """
     
@@ -89,16 +87,16 @@ class UIEnhancements:
     
     @staticmethod
     def create_info_card(title, content, icon="ℹ️", color="#00ccff"):
-        """Create styled info card"""
+        """Create minimalist info card"""
         return f"""
-        <div style="background: linear-gradient(135deg, rgba(0,204,255,0.1) 0%, rgba(0,255,136,0.1) 100%); 
-                    border: 1px solid rgba(0,204,255,0.3); border-radius: 15px; padding: 20px; 
-                    margin: 15px 0; backdrop-filter: blur(10px); font-family: 'Poppins', sans-serif;">
-            <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                <span style="font-size: 1.5rem; margin-right: 10px;">{icon}</span>
-                <h3 style="color: {color}; margin: 0; font-weight: 600;">{title}</h3>
+        <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(0,204,255,0.2); 
+                    border-radius: 20px; padding: 2rem; margin: 1.5rem 0; backdrop-filter: blur(20px); 
+                    font-family: 'Poppins', sans-serif; position: relative; overflow: hidden;">
+            <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                <div style="font-size: 1.5rem; margin-right: 1rem; opacity: 0.8;">{icon}</div>
+                <h3 style="color: {color}; margin: 0; font-weight: 400; font-size: 1.1rem;">{title}</h3>
             </div>
-            <div style="color: #fff; line-height: 1.6;">{content}</div>
+            <div style="color: #e2e8f0; line-height: 1.6; font-weight: 300;">{content}</div>
         </div>
         """
     
@@ -132,19 +130,19 @@ class UIEnhancements:
     
     @staticmethod
     def create_feature_card(title, description, icon, features):
-        """Create feature showcase card"""
-        features_html = "".join([f"<li style='margin: 5px 0; color: #ccc;'>• {feature}</li>" for feature in features])
+        """Create minimalist feature showcase card"""
+        features_html = "".join([f"<li style='margin: 8px 0; color: #94a3b8; font-weight: 300;'>• {feature}</li>" for feature in features])
         
         return f"""
-        <div style="background: linear-gradient(135deg, rgba(0,255,136,0.1) 0%, rgba(0,204,255,0.1) 100%); 
-                    border: 1px solid rgba(0,255,136,0.3); border-radius: 15px; padding: 25px; 
-                    margin: 20px 0; backdrop-filter: blur(10px); font-family: 'Poppins', sans-serif;
-                    transition: all 0.3s ease;">
-            <div style="text-align: center; margin-bottom: 20px;">
-                <div style="font-size: 3rem; margin-bottom: 10px;">{icon}</div>
-                <h3 style="color: #00ff88; margin: 0; font-weight: 600;">{title}</h3>
+        <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(0,255,136,0.2); 
+                    border-radius: 20px; padding: 2.5rem; margin: 2rem 0; backdrop-filter: blur(20px); 
+                    font-family: 'Poppins', sans-serif; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                    position: relative; overflow: hidden;">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem; opacity: 0.9;">{icon}</div>
+                <h3 style="color: #00ff88; margin: 0; font-weight: 400; font-size: 1.3rem;">{title}</h3>
             </div>
-            <p style="color: #00ccff; text-align: center; margin-bottom: 20px; font-size: 1.1rem;">{description}</p>
+            <p style="color: #00ccff; text-align: center; margin-bottom: 1.5rem; font-size: 1rem; font-weight: 300; line-height: 1.6;">{description}</p>
             <ul style="list-style: none; padding: 0; margin: 0;">
                 {features_html}
             </ul>
@@ -153,25 +151,66 @@ class UIEnhancements:
     
     @staticmethod
     def add_footer():
-        """Add footer with Replit branding"""
+        """Add minimalist footer with Replit branding"""
         return """
-        <div style="margin-top: 50px; padding: 20px; text-align: center; 
-                    border-top: 1px solid rgba(0,255,136,0.3); font-family: 'Poppins', sans-serif;">
-            <p style="color: #888; margin: 10px 0;">
-                <strong>PulseAI Hospital Management System</strong><br>
-                Built with ❤️ on Replit | Crafted by Moeed ul Hassan @The legend
-            </p>
-            <div style="margin-top: 15px;">
-                <span style="display: inline-block; margin: 0 10px; padding: 5px 15px; 
-                           background: linear-gradient(45deg, #667881, #4a5568); color: white; 
-                           border-radius: 20px; font-size: 12px;">
-                    🔗 Powered by Replit
-                </span>
-                <span style="display: inline-block; margin: 0 10px; padding: 5px 15px; 
-                           background: linear-gradient(45deg, #00ff88, #00ccff); color: black; 
-                           border-radius: 20px; font-size: 12px;">
+        <div style="margin-top: 4rem; padding: 2rem; text-align: center; 
+                    border-top: 1px solid rgba(0,255,136,0.1); font-family: 'Poppins', sans-serif;">
+            <div style="margin-bottom: 1.5rem;">
+                <h3 style="color: #00ff88; margin: 0; font-weight: 300; font-size: 1.2rem;">PulseAI Hospital Management System</h3>
+                <p style="color: #64748b; margin: 0.5rem 0; font-weight: 300; font-size: 0.9rem;">
+                    Crafted with precision | Developed by Moeed ul Hassan @The legend
+                </p>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <div style="padding: 0.5rem 1rem; background: rgba(15, 23, 42, 0.8); 
+                           border: 1px solid rgba(0,255,136,0.2); border-radius: 12px; 
+                           font-size: 0.8rem; color: #00ff88; backdrop-filter: blur(10px);">
                     ⚡ PulseAI v2.0
-                </span>
+                </div>
+                <div style="padding: 0.5rem 1rem; background: rgba(15, 23, 42, 0.8); 
+                           border: 1px solid rgba(0,204,255,0.2); border-radius: 12px; 
+                           font-size: 0.8rem; color: #00ccff; backdrop-filter: blur(10px);">
+                    🏥 Healthcare Tech
+                </div>
+                <div style="padding: 0.5rem 1rem; background: rgba(15, 23, 42, 0.8); 
+                           border: 1px solid rgba(255,164,0,0.2); border-radius: 12px; 
+                           font-size: 0.8rem; color: #ffa500; backdrop-filter: blur(10px);">
+                    🔬 Advanced Analytics
+                </div>
+            </div>
+        </div>
+        """
+    
+    @staticmethod
+    def create_minimalist_header(title, subtitle=None, icon=None):
+        """Create minimalist section header"""
+        subtitle_html = f"<p style='color: #64748b; margin: 0.5rem 0; font-weight: 300; font-size: 0.9rem;'>{subtitle}</p>" if subtitle else ""
+        icon_html = f"<div style='font-size: 1.5rem; margin-right: 1rem; opacity: 0.8;'>{icon}</div>" if icon else ""
+        
+        return f"""
+        <div style="margin: 2rem 0 1.5rem 0; padding: 1.5rem; background: rgba(15, 23, 42, 0.8); 
+                    border: 1px solid rgba(0,255,136,0.2); border-radius: 16px; 
+                    backdrop-filter: blur(20px); font-family: 'Poppins', sans-serif;">
+            <div style="display: flex; align-items: center;">
+                {icon_html}
+                <div>
+                    <h2 style="color: #00ff88; margin: 0; font-weight: 300; font-size: 1.5rem;">{title}</h2>
+                    {subtitle_html}
+                </div>
+            </div>
+        </div>
+        """
+    
+    @staticmethod
+    def create_glass_card(content, padding="2rem"):
+        """Create glass morphism card"""
+        return f"""
+        <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(0,255,136,0.2); 
+                    border-radius: 20px; padding: {padding}; margin: 1rem 0; 
+                    backdrop-filter: blur(20px); font-family: 'Poppins', sans-serif;
+                    position: relative; overflow: hidden;">
+            <div style="position: relative; z-index: 1;">
+                {content}
             </div>
         </div>
         """

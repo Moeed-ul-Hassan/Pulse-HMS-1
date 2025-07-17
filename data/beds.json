@@ -1,0 +1,362 @@
+{
+  "ER_01": {
+    "bed_number": "ER-01",
+    "room_number": "ER-01",
+    "department": "Emergency",
+    "bed_type": "Emergency",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "ER_02": {
+    "bed_number": "ER-02",
+    "room_number": "ER-02",
+    "department": "Emergency",
+    "bed_type": "Emergency",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "ER_03": {
+    "bed_number": "ER-03",
+    "room_number": "ER-03",
+    "department": "Emergency",
+    "bed_type": "Emergency",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "ER_04": {
+    "bed_number": "ER-04",
+    "room_number": "ER-04",
+    "department": "Emergency",
+    "bed_type": "Emergency",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "ER_05": {
+    "bed_number": "ER-05",
+    "room_number": "ER-05",
+    "department": "Emergency",
+    "bed_type": "Emergency",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "ER_06": {
+    "bed_number": "ER-06",
+    "room_number": "ER-06",
+    "department": "Emergency",
+    "bed_type": "Emergency",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "ER_07": {
+    "bed_number": "ER-07",
+    "room_number": "ER-07",
+    "department": "Emergency",
+    "bed_type": "Emergency",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "ER_08": {
+    "bed_number": "ER-08",
+    "room_number": "ER-08",
+    "department": "Emergency",
+    "bed_type": "Emergency",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "ER_09": {
+    "bed_number": "ER-09",
+    "room_number": "ER-09",
+    "department": "Emergency",
+    "bed_type": "Emergency",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "ER_10": {
+    "bed_number": "ER-10",
+    "room_number": "ER-10",
+    "department": "Emergency",
+    "bed_type": "Emergency",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "ICU_01": {
+    "bed_number": "ICU-01",
+    "room_number": "ICU-01",
+    "department": "ICU",
+    "bed_type": "ICU",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "ICU_02": {
+    "bed_number": "ICU-02",
+    "room_number": "ICU-02",
+    "department": "ICU",
+    "bed_type": "ICU",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "ICU_03": {
+    "bed_number": "ICU-03",
+    "room_number": "ICU-03",
+    "department": "ICU",
+    "bed_type": "ICU",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "ICU_04": {
+    "bed_number": "ICU-04",
+    "room_number": "ICU-04",
+    "department": "ICU",
+    "bed_type": "ICU",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "ICU_05": {
+    "bed_number": "ICU-05",
+    "room_number": "ICU-05",
+    "department": "ICU",
+    "bed_type": "ICU",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "ICU_06": {
+    "bed_number": "ICU-06",
+    "room_number": "ICU-06",
+    "department": "ICU",
+    "bed_type": "ICU",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "ICU_07": {
+    "bed_number": "ICU-07",
+    "room_number": "ICU-07",
+    "department": "ICU",
+    "bed_type": "ICU",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "ICU_08": {
+    "bed_number": "ICU-08",
+    "room_number": "ICU-08",
+    "department": "ICU",
+    "bed_type": "ICU",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "ICU_09": {
+    "bed_number": "ICU-09",
+    "room_number": "ICU-09",
+    "department": "ICU",
+    "bed_type": "ICU",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "ICU_10": {
+    "bed_number": "ICU-10",
+    "room_number": "ICU-10",
+    "department": "ICU",
+    "bed_type": "ICU",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "GW_01": {
+    "bed_number": "GW-01",
+    "room_number": "GW-01",
+    "department": "General Surgery",
+    "bed_type": "General",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "GW_02": {
+    "bed_number": "GW-02",
+    "room_number": "GW-01",
+    "department": "General Surgery",
+    "bed_type": "General",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "GW_03": {
+    "bed_number": "GW-03",
+    "room_number": "GW-02",
+    "department": "General Surgery",
+    "bed_type": "General",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "GW_04": {
+    "bed_number": "GW-04",
+    "room_number": "GW-02",
+    "department": "General Surgery",
+    "bed_type": "General",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "GW_05": {
+    "bed_number": "GW-05",
+    "room_number": "GW-03",
+    "department": "General Surgery",
+    "bed_type": "General",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "GW_06": {
+    "bed_number": "GW-06",
+    "room_number": "GW-03",
+    "department": "General Surgery",
+    "bed_type": "General",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "GW_07": {
+    "bed_number": "GW-07",
+    "room_number": "GW-04",
+    "department": "General Surgery",
+    "bed_type": "General",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "GW_08": {
+    "bed_number": "GW-08",
+    "room_number": "GW-04",
+    "department": "General Surgery",
+    "bed_type": "General",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "GW_09": {
+    "bed_number": "GW-09",
+    "room_number": "GW-05",
+    "department": "General Surgery",
+    "bed_type": "General",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "GW_10": {
+    "bed_number": "GW-10",
+    "room_number": "GW-05",
+    "department": "General Surgery",
+    "bed_type": "General",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "GW_11": {
+    "bed_number": "GW-11",
+    "room_number": "GW-06",
+    "department": "General Surgery",
+    "bed_type": "General",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "GW_12": {
+    "bed_number": "GW-12",
+    "room_number": "GW-06",
+    "department": "General Surgery",
+    "bed_type": "General",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "GW_13": {
+    "bed_number": "GW-13",
+    "room_number": "GW-07",
+    "department": "General Surgery",
+    "bed_type": "General",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "GW_14": {
+    "bed_number": "GW-14",
+    "room_number": "GW-07",
+    "department": "General Surgery",
+    "bed_type": "General",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "GW_15": {
+    "bed_number": "GW-15",
+    "room_number": "GW-08",
+    "department": "General Surgery",
+    "bed_type": "General",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "GW_16": {
+    "bed_number": "GW-16",
+    "room_number": "GW-08",
+    "department": "General Surgery",
+    "bed_type": "General",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "GW_17": {
+    "bed_number": "GW-17",
+    "room_number": "GW-09",
+    "department": "General Surgery",
+    "bed_type": "General",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "GW_18": {
+    "bed_number": "GW-18",
+    "room_number": "GW-09",
+    "department": "General Surgery",
+    "bed_type": "General",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "GW_19": {
+    "bed_number": "GW-19",
+    "room_number": "GW-10",
+    "department": "General Surgery",
+    "bed_type": "General",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  },
+  "GW_20": {
+    "bed_number": "GW-20",
+    "room_number": "GW-10",
+    "department": "General Surgery",
+    "bed_type": "General",
+    "status": "Available",
+    "patient_name": null,
+    "patient_id": null
+  }
+}

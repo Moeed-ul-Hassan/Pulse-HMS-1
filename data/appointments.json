@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "patient_id": "#0323",
+    "patient_name": "Ali ul Hasssan Jango",
+    "doctor": "Dr. Smith",
+    "department": "Emergency",
+    "date": "2025-07-17",
+    "time": "09:00",
+    "status": "scheduled",
+    "notes": "",
+    "created_at": "2025-07-17T12:32:09.691006"
+  }
+]

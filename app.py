@@ -102,12 +102,9 @@ def create_enhanced_header():
     
     with col3:
         st.markdown(f"""
-        <div style="text-align: right; padding: 10px; font-family: 'Poppins', sans-serif;">
-            <strong>🏥 Hospital Management System</strong><br>
-            <small>Built on Replit | Advanced Healthcare Platform</small>
-        </div>
-        <div class="replit-badge">
-            🔗 Built on Replit
+        <div style="text-align: right; padding: 1rem; font-family: 'Poppins', sans-serif;">
+            <h3 style="color: #00ff88; margin: 0; font-weight: 300; font-size: 1.2rem;">Hospital Management System</h3>
+            <p style="color: #94a3b8; margin: 0.25rem 0; font-weight: 300; font-size: 0.8rem;">Advanced Healthcare Platform</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -116,11 +113,15 @@ def create_enhanced_sidebar():
     with st.sidebar:
         # Hospital info section
         st.markdown(f"""
-        <div class="theme-card" style="text-align: center; margin-bottom: 20px; font-family: 'Poppins', sans-serif;">
-            <h3>🏥 PulseAI HMS</h3>
-            <p><strong>Advanced Hospital Management</strong></p>
-            <p>Healthcare Analytics Platform</p>
-            <p><small>Version 2.0 | Built on Replit</small></p>
+        <div class="theme-card" style="text-align: center; margin-bottom: 20px; font-family: 'Poppins', sans-serif; position: relative; z-index: 1;">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem; opacity: 0.9;">🏥</div>
+            <h3 style="color: #00ff88; margin: 0; font-weight: 300; font-size: 1.5rem;">PulseAI HMS</h3>
+            <p style="color: #94a3b8; margin: 0.5rem 0; font-weight: 300; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">Advanced Hospital Management</p>
+            <p style="color: #64748b; margin: 0.5rem 0; font-weight: 300; font-size: 0.8rem;">Healthcare Analytics Platform</p>
+            <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 0.5rem;">
+                <span style="padding: 0.25rem 0.75rem; background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.3); border-radius: 12px; font-size: 0.7rem; color: #00ff88;">v2.0</span>
+                <span style="padding: 0.25rem 0.75rem; background: rgba(0,204,255,0.1); border: 1px solid rgba(0,204,255,0.3); border-radius: 12px; font-size: 0.7rem; color: #00ccff;">Healthcare</span>
+            </div>
         </div>
         """, unsafe_allow_html=True)
         
@@ -212,7 +213,13 @@ def show_enhanced_dashboard():
     col1, col2 = st.columns(2)
     
     with col1:
-        st.markdown("### 📈 Risk Distribution")
+        st.markdown("""
+    <div style="margin-bottom: 1.5rem;">
+        <h3 style="color: #00ff88; font-family: 'Poppins', sans-serif; font-weight: 300; font-size: 1.2rem; margin: 0;">
+            📈 Risk Distribution
+        </h3>
+    </div>
+    """, unsafe_allow_html=True)
         if total_patients > 0:
             risk_data = {'Low': 0, 'Moderate': 0, 'High': 0}
             for patient in patients:
@@ -269,7 +276,13 @@ def show_enhanced_dashboard():
             )
     
     with col2:
-        st.markdown("### 🔔 Recent Notifications")
+        st.markdown("""
+    <div style="margin-bottom: 1.5rem;">
+        <h3 style="color: #00ff88; font-family: 'Poppins', sans-serif; font-weight: 300; font-size: 1.2rem; margin: 0;">
+            🔔 Recent Notifications
+        </h3>
+    </div>
+    """, unsafe_allow_html=True)
         recent_notifications = st.session_state.notification_manager.get_recent_notifications(5)
         if recent_notifications:
             for notif in recent_notifications:

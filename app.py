@@ -106,8 +106,8 @@ def create_enhanced_sidebar():
             </div>
         </div>
         """, unsafe_allow_html=True)
-            selected = option_menu(
-                menu_title="Navigation",
+        selected = option_menu(
+            menu_title="Navigation",
             options=[
                 "Dashboard", "Patient Management", "Medicine Management", "Medical Records",
                 "Risk Assessment", "Appointments", "Bed Management", 

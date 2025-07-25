@@ -18,135 +18,87 @@ class ThemeManager:
     
     @staticmethod
     def get_theme_config() -> Dict:
-        """Get theme configuration"""
+        """Get minimalist, professional theme configuration"""
         theme = ThemeManager.get_theme()
-        
         if theme == 'dark':
             return {
-                'primary_color': '#00ff88',
-                'secondary_color': '#00ccff',
-                'background_color': '#0a0a0a',
-                'surface_color': 'rgba(11, 61, 11, 0.15)',
-                'text_color': '#ffffff',
-                'border_color': 'rgba(0, 255, 136, 0.3)',
-                'card_background': 'linear-gradient(135deg, rgba(11, 61, 11, 0.15) 0%, rgba(49, 120, 115, 0.15) 100%)',
-                'gradient_bg': '''
-                background: 
-                    radial-gradient(circle at 20% 20%, rgba(0, 255, 136, 0.1) 0%, transparent 30%),
-                    radial-gradient(circle at 80% 80%, rgba(0, 204, 255, 0.1) 0%, transparent 30%),
-                    radial-gradient(circle at 40% 60%, rgba(255, 0, 136, 0.1) 0%, transparent 30%),
-                    linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-                '''
+                'primary_color': '#2563eb',  # blue-600
+                'secondary_color': '#64748b',  # slate-500
+                'background_color': '#18181b',  # zinc-900
+                'surface_color': '#23272f',  # zinc-800
+                'text_color': '#f4f4f5',  # zinc-100
+                'border_color': '#334155',  # slate-700
+                'card_background': '#23272f',
+                'gradient_bg': 'background: #18181b;'
             }
         else:
             return {
-                'primary_color': '#2e7d32',
-                'secondary_color': '#1976d2',
-                'background_color': '#ffffff',
-                'surface_color': 'rgba(46, 125, 50, 0.05)',
-                'text_color': '#000000',
-                'border_color': 'rgba(46, 125, 50, 0.3)',
-                'card_background': 'linear-gradient(135deg, rgba(46, 125, 50, 0.05) 0%, rgba(25, 118, 210, 0.05) 100%)',
-                'gradient_bg': '''
-                background: 
-                    radial-gradient(circle at 20% 20%, rgba(46, 125, 50, 0.1) 0%, transparent 30%),
-                    radial-gradient(circle at 80% 80%, rgba(25, 118, 210, 0.1) 0%, transparent 30%),
-                    linear-gradient(135deg, #f5f5f5 0%, #e3f2fd 50%, #f1f8e9 100%);
-                '''
+                'primary_color': '#2563eb',
+                'secondary_color': '#64748b',
+                'background_color': '#f4f4f5',
+                'surface_color': '#ffffff',
+                'text_color': '#18181b',
+                'border_color': '#e5e7eb',
+                'card_background': '#ffffff',
+                'gradient_bg': 'background: #f4f4f5;'
             }
     
     @staticmethod
     def apply_theme():
-        """Apply current theme styles"""
         config = ThemeManager.get_theme_config()
-        theme_name = ThemeManager.get_theme()
-        
         st.markdown(f"""
         <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
         .stApp {{
             {config['gradient_bg']}
-            font-family: 'Orbitron', monospace;
+            font-family: 'Poppins', sans-serif;
             color: {config['text_color']};
         }}
-        
         .theme-card {{
             background: {config['card_background']};
-            border: 2px solid {config['border_color']};
-            border-radius: 15px;
-            padding: 20px;
+            border: 1px solid {config['border_color']};
+            border-radius: 12px;
+            padding: 18px;
             margin: 10px 0;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
         }}
-        
         .metric-card {{
             background: {config['surface_color']};
             border: 1px solid {config['border_color']};
             border-radius: 10px;
-            padding: 15px;
+            padding: 16px;
             text-align: center;
-            transition: transform 0.3s ease;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
         }}
-        
         .metric-card:hover {{
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.2);
+            transform: none;
+            box-shadow: 0 2px 8px rgba(37,99,235,0.08);
         }}
-        
-        .alert-card {{
-            background: linear-gradient(135deg, rgba(255, 68, 68, 0.1) 0%, rgba(255, 0, 136, 0.1) 100%);
-            border: 2px solid rgba(255, 68, 68, 0.3);
+        .alert-card, .success-card {{
+            background: {config['surface_color']};
+            border: 1px solid {config['border_color']};
             border-radius: 10px;
-            padding: 15px;
+            padding: 14px;
             margin: 10px 0;
         }}
-        
-        .success-card {{
-            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(11, 61, 11, 0.1) 100%);
-            border: 2px solid {config['primary_color']};
-            border-radius: 10px;
-            padding: 15px;
-            margin: 10px 0;
-        }}
-        
         .sidebar .sidebar-content {{
             background: {config['surface_color']};
         }}
-        
-        /* Custom button styles */
         .stButton > button {{
-            background: linear-gradient(45deg, {config['primary_color']}, {config['secondary_color']});
+            background: {config['primary_color']};
             color: white;
             border: none;
-            border-radius: 10px;
-            padding: 10px 20px;
-            font-weight: bold;
-            transition: all 0.3s ease;
+            border-radius: 8px;
+            padding: 10px 18px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 1px 4px rgba(37,99,235,0.08);
         }}
-        
         .stButton > button:hover {{
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+            background: {config['secondary_color']};
         }}
-        
-        /* Theme toggle button */
         .theme-toggle {{
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            z-index: 1000;
-            background: {config['primary_color']};
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }}
-        
-        .theme-toggle:hover {{
-            transform: scale(1.1);
+            display: none;
         }}
         </style>
         """, unsafe_allow_html=True)

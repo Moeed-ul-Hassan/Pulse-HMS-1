@@ -12,23 +12,19 @@ class UIEnhancements:
         pass
     
     @staticmethod
-    def create_enhanced_metric_card(title, value, icon, color="#00ff88", subtitle=None):
-        """Create futuristic minimalist metric card"""
+    def create_enhanced_metric_card(title, value, icon, color="#2563eb", subtitle=None):
+        """Create minimalist metric card"""
         subtitle_html = f"<p style='color: #64748b; font-size: 0.8rem; margin: 8px 0 0 0; font-weight: 300;'>{subtitle}</p>" if subtitle else ""
-        
         return f"""
-        <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(0,255,136,0.2); 
-                    border-radius: 20px; padding: 2rem; margin: 1rem 0; backdrop-filter: blur(20px); 
-                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;
-                    font-family: 'Poppins', sans-serif;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+        <div style="background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1.5rem; margin: 1rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.03); font-family: 'Poppins', sans-serif;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 18px;">
                 <div>
-                    <h3 style="color: #94a3b8; margin: 0; font-size: 0.9rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.5px;">{title}</h3>
+                    <h3 style="color: #64748b; margin: 0; font-size: 0.95rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">{title}</h3>
                     {subtitle_html}
                 </div>
-                <div style="font-size: 1.8rem; opacity: 0.7;">{icon}</div>
+                <div style="font-size: 1.7rem; opacity: 0.7;">{icon}</div>
             </div>
-            <h2 style="font-size: 2.8rem; font-weight: 300; margin: 0; color: {color};">{value}</h2>
+            <h2 style="font-size: 2.3rem; font-weight: 400; margin: 0; color: {color};">{value}</h2>
         </div>
         """
     
@@ -189,15 +185,12 @@ class UIEnhancements:
         """Create minimalist section header"""
         subtitle_html = f"<p style='color: #64748b; margin: 0.5rem 0; font-weight: 300; font-size: 0.9rem;'>{subtitle}</p>" if subtitle else ""
         icon_html = f"<div style='font-size: 1.5rem; margin-right: 1rem; opacity: 0.8;'>{icon}</div>" if icon else ""
-        
         return f"""
-        <div style="margin: 2rem 0 1.5rem 0; padding: 1.5rem; background: rgba(15, 23, 42, 0.8); 
-                    border: 1px solid rgba(0,255,136,0.2); border-radius: 16px; 
-                    backdrop-filter: blur(20px); font-family: 'Poppins', sans-serif;">
+        <div style="margin: 2rem 0 1.5rem 0; padding: 1.2rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; font-family: 'Poppins', sans-serif;">
             <div style="display: flex; align-items: center;">
                 {icon_html}
                 <div>
-                    <h2 style="color: #00ff88; margin: 0; font-weight: 300; font-size: 1.5rem;">{title}</h2>
+                    <h2 style="color: #2563eb; margin: 0; font-weight: 400; font-size: 1.4rem;">{title}</h2>
                     {subtitle_html}
                 </div>
             </div>

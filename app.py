@@ -29,7 +29,7 @@ from utils.risk_calculator import FraminghamRiskCalculator
 from utils.data_manager import PatientDataManager
 from utils.visualizations import create_risk_gauge, create_timeline_chart, create_risk_factors_chart
 st.set_page_config(
-    page_title="PulseAI - Enhanced Hospital Management System",
+    page_title="Pulse - Enhanced Hospital Management System",
     page_icon="⚡",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -95,7 +95,8 @@ def create_enhanced_header():
         </div>
         """, unsafe_allow_html=True)
 def create_enhanced_sidebar():
-    with st.sidebar:        st.markdown(f"""
+    with st.sidebar:
+        st.markdown(f"""
         <div class="theme-card" style="text-align: center; margin-bottom: 20px; font-family: 'Poppins', sans-serif; position: relative; z-index: 1;">
             <div style="font-size: 2.5rem; margin-bottom: 1rem; opacity: 0.9;">🏥</div>
             <h3 style="color: #00ff88; margin: 0; font-weight: 300; font-size: 1.5rem;">PulseAI HMS</h3>
@@ -106,36 +107,36 @@ def create_enhanced_sidebar():
             </div>
         </div>
         """, unsafe_allow_html=True)
-        selected = option_menu(
-            menu_title="Navigation",
-            options=[
-                "Dashboard", "Patient Management", "Medicine Management", "Medical Records",
-                "Risk Assessment", "Appointments", "Bed Management", 
-                "Staff Management", "Inventory", "Billing & Finance", 
-                "Advanced Analytics", "Reports", "Settings", "About Developer"
+    selected = option_menu(
+        menu_title="Navigation",
+        options=[
+            "Dashboard", "Patient Management", "Medicine Management", "Medical Records",
+            "Risk Assessment", "Appointments", "Bed Management", 
+            "Staff Management", "Inventory", "Billing & Finance", 
+            "Advanced Analytics", "Reports", "Settings", "About Developer"
+        ],
+        icons=[
+            "speedometer2", "person-plus-fill", "capsule", "file-medical", "heart-pulse",
+            "calendar", "bed", "people-fill", "box-seam",
+            "currency-dollar", "graph-up-arrow", "file-earmark-pdf", "gear", "info-circle"
             ],
-            icons=[
-                "speedometer2", "person-plus-fill", "capsule", "file-medical", "heart-pulse",
-                "calendar", "bed", "people-fill", "box-seam",
-                "currency-dollar", "graph-up-arrow", "file-earmark-pdf", "gear", "info-circle"
-            ],
-            menu_icon="hospital",
-            default_index=0,
-            styles={
-                "container": {"padding": "0!important", "background-color": "transparent"},
-                "icon": {"color": "#00ff88", "font-size": "16px"},
-                "nav-link": {
-                    "font-size": "14px",
-                    "text-align": "left",
-                    "margin": "0px",
-                    "background-color": "rgba(0,255,136,0.1)",
-                    "border-radius": "5px"
-                },
-                "nav-link-selected": {"background-color": "#00ff88", "color": "black"},
+        menu_icon="hospital",
+        default_index=0,
+        styles={
+            "container": {"padding": "0!important", "background-color": "transparent"},
+            "icon": {"color": "#00ff88", "font-size": "16px"},
+            "nav-link": {
+                "font-size": "14px",
+                "text-align": "left",
+                "margin": "0px 0px 10px 0px",  # Add bottom margin for spacing between buttons
+                "background-color": "rgba(0,255,136,0.1)",
+                "border-radius": "5px"
             },
-        )
-        st.session_state.notification_manager.display_notifications_sidebar()
-        return selected
+            "nav-link-selected": {"background-color": "#00ff88", "color": "black"},
+        },
+    )
+    st.session_state.notification_manager.display_notifications_sidebar()
+    return selected
 def show_enhanced_dashboard():
     st.markdown("## 📊 Enhanced Dashboard")
     patients = st.session_state.data_manager.get_all_patients()
@@ -146,21 +147,20 @@ def show_enhanced_dashboard():
             risk_score = st.session_state.risk_calculator.calculate_framingham_risk(patient)
             if risk_score > 20:
                 high_risk_count += 1
-        col1, col2, col3, col4 = st.columns(4)
-    
+    col1, col2, col3, col4 = st.columns(4)
+
     with col1:
         st.markdown(
             UIEnhancements.create_enhanced_metric_card(
                 "Total Patients", total_patients, "👥", "#00ff88"
             ), unsafe_allow_html=True
         )
-    
+
     with col2:
         st.markdown(
             UIEnhancements.create_enhanced_metric_card(
                 "High Risk Patients", high_risk_count, "🚨", "#ff4444"
-            ), unsafe_allow_html=True
-        )
+            ), unsafe_allow_html=True)
     with col3:
         appointments_today = len(st.session_state.scheduler.get_appointments_by_date(str(datetime.now().date())))
         st.markdown(
@@ -176,7 +176,7 @@ def show_enhanced_dashboard():
             ), unsafe_allow_html=True
         )
     col1, col2 = st.columns(2)
-    
+
     with col1:
         st.markdown("""
     <div style="margin-bottom: 1.5rem;">
@@ -185,51 +185,49 @@ def show_enhanced_dashboard():
         </h3>
     </div>
     """, unsafe_allow_html=True)
-    if total_patients > 0:
-        risk_data = {'Low': 0, 'Moderate': 0, 'High': 0}
-        for patient in patients:
-            risk_score = st.session_state.risk_calculator.calculate_framingham_risk(patient)
-            if risk_score < 10:
-                risk_data['Low'] += 1
-            elif risk_score < 20:
-                risk_data['Moderate'] += 1
+        if total_patients > 0:
+            risk_data = {'Low': 0, 'Moderate': 0, 'High': 0}
+            for patient in patients:
+                risk_score = st.session_state.risk_calculator.calculate_framingham_risk(patient)
+                if risk_score < 10:
+                    risk_data['Low'] += 1
+                elif risk_score < 20:
+                    risk_data['Moderate'] += 1
+                else:
+                    risk_data['High'] += 1
+            # Filter out zero values for better visualization
+            filtered_data = {k: v for k, v in risk_data.items() if v > 0}
+            if not filtered_data:
+                st.info("No patient data available for risk analysis")
             else:
-                risk_data['High'] += 1
-        
-        # Filter out zero values for better visualization
-        filtered_data = {k: v for k, v in risk_data.items() if v > 0}
-        
-        if not filtered_data:
-            st.info("No patient data available for risk analysis")
-        else:
-            fig = px.pie(
-                values=list(filtered_data.values()),
-                names=list(filtered_data.keys()),
-                color_discrete_map={'Low': '#00ff88', 'Moderate': '#ffa500', 'High': '#ff4444'},
-                title="Patient Risk Distribution"
-            )
-            fig.update_layout(
-                font=dict(family="Poppins, sans-serif", size=12),
-                showlegend=True,
-                plot_bgcolor='rgba(0,0,0,0)',
-                paper_bgcolor='rgba(0,0,0,0)',
-                title_font_size=16,
-                title_font_color='#00ff88',
-                legend=dict(
-                    orientation="h",
-                    yanchor="bottom",
-                    y=-0.2,
-                    xanchor="center",
-                    x=0.5
+                fig = px.pie(
+                    values=list(filtered_data.values()),
+                    names=list(filtered_data.keys()),
+                    color_discrete_map={'Low': '#00ff88', 'Moderate': '#ffa500', 'High': '#ff4444'},
+                    title="Patient Risk Distribution"
                 )
-            )
-            fig.update_traces(
-                textposition='inside',
-                textinfo='percent+label',
-                hovertemplate='<b>%{label}</b><br>Count: %{value}<br>Percentage: %{percent}<extra></extra>',
-                marker=dict(line=dict(color='#000000', width=2))
-            )
-            st.plotly_chart(fig, use_container_width=True)
+                fig.update_layout(
+                    font=dict(family="Poppins, sans-serif", size=12),
+                    showlegend=True,
+                    plot_bgcolor='rgba(0,0,0,0)',
+                    paper_bgcolor='rgba(0,0,0,0)',
+                    title_font_size=16,
+                    title_font_color='#00ff88',
+                    legend=dict(
+                        orientation="h",
+                        yanchor="bottom",
+                        y=-0.2,
+                        xanchor="center",
+                        x=0.5
+                    )
+                )
+                fig.update_traces(
+                    textposition='inside',
+                    textinfo='percent+label',
+                    hovertemplate='<b>%{label}</b><br>Count: %{value}<br>Percentage: %{percent}<extra></extra>',
+                    marker=dict(line=dict(color='#000000', width=2))
+                )
+                st.plotly_chart(fig, use_container_width=True)
         else:
             st.markdown(
                 UIEnhancements.create_info_card(
@@ -239,7 +237,7 @@ def show_enhanced_dashboard():
                     "#00ccff"
                 ), unsafe_allow_html=True
             )
-    
+
     with col2:
         st.markdown("""
     <div style="margin-bottom: 1.5rem;">

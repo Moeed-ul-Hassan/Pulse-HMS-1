@@ -1,1 +1,12 @@
-README_ADMIN.md
+# Streamlit cache and logs
+.streamlit/
+
+# Qodo project files
+.qodo/
+
+# Python virtual environments
+.venv/
+venv/
+
+# Vercel deployment files
+.vercel/
